@@ -1,0 +1,4 @@
+(executable
+ (name main)
+ (libraries straightline)
+ (flags (:standard -warn-error -A)))
