@@ -31,7 +31,7 @@ In order to resolve possible conflicts during syntactic analysis, the following 
 
 | operators | associativity |
 |-|-|
-|`*` `\`|left|
+|`*` `/`|left|
 |`+` `-`|left|
 |`:=`|right|
 
