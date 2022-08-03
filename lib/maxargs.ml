@@ -15,5 +15,12 @@ and maxargs_exp exp =
   | OpExp (e1, _, e2) -> max (maxargs_exp e1) (maxargs_exp e2)
   | EseqExp (s, e) -> max (maxargs s) (maxargs_exp e)
 
-and maxargs_exp_list exp_list =
+(* definition using direct recursion *)
+and maxargs_exp_list list =
+  match list with
+  | [] -> 0
+  | e :: es -> max (maxargs_exp e) (maxargs_exp_list es)
+
+(* alternative definition using higher order functions *)
+and maxargs_exp_list_alt exp_list =
   List.fold_left (+) 0 (List.map maxargs_exp exp_list)
