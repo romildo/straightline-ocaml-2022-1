@@ -2,6 +2,9 @@
 
 open Ast
 
+(*
+  print(19)
+   *)
 let prog1 = PrintStm [NumExp 19]
 
 (*
