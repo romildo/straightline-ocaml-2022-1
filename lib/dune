@@ -2,4 +2,22 @@
  (name straightline)
  (wrapped false)
  (libraries printbox printbox-text)
- (flags (:standard -warn-error -A)))
+ (preprocess
+  (staged_pps
+    ppx_deriving.show))
+ (flags
+  (:standard -warn-error -A)))
+
+(ocamllex
+ (modules lexer))
+
+(menhir
+ (modules parser)
+ (flags (
+   ; --only-tokens      ; generate just the token type
+   --explain          ; explain conflicts in <basename>.conflicts
+   --dump             ; write an .automaton file
+   --reference-graph
+   --automaton-graph
+   --log-grammar 2    ; 
+)))

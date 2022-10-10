@@ -5,19 +5,19 @@ open Ast
 (*
   print(19)
    *)
-let prog1 = PrintStm [NumExp 19]
+let prog1 = PrintStm [NumExp 19.]
 
 (*
   peso := 73
  *)
 
-let prog2 = AssignStm ("peso", NumExp 73)
+let prog2 = AssignStm (Symbol.symbol "peso", NumExp 73.)
 
 (*
   print(43, 7, 0)
  *)
 
-let prog3 = PrintStm [NumExp 43; NumExp 7; NumExp 0]
+let prog3 = PrintStm [NumExp 43.; NumExp 7.; NumExp 0.]
 
 (*
   x := 2 + 3;
@@ -25,8 +25,8 @@ let prog3 = PrintStm [NumExp 43; NumExp 7; NumExp 0]
  *)
 
 let prog4 =
-  CompoundStm (AssignStm ("x", OpExp (NumExp 2, Plus, NumExp 3)),
-               PrintStm [IdExp "x"])
+  CompoundStm (AssignStm (Symbol.symbol "x", OpExp (Plus, NumExp 2., NumExp 3.)),
+               PrintStm [IdExp (Symbol.symbol "x")])
 
 (*
   x := 2 + 3 * 4;
@@ -35,13 +35,13 @@ let prog4 =
  *)
 
 let prog5 =
-  CompoundStm (AssignStm ("x",
-                          OpExp (NumExp 2,
-                                 Plus,
-                                 OpExp (NumExp 3,
-                                        Times,
-                                        NumExp 4))),
-               PrintStm [IdExp "x"])
+  CompoundStm (AssignStm (Symbol.symbol "x",
+                          OpExp (Plus,
+                                 NumExp 2.,
+                                 OpExp (Times,
+                                        NumExp 3.,
+                                        NumExp 4.))),
+               PrintStm [IdExp (Symbol.symbol "x")])
 
 (*
   a := 5 + 3;
@@ -50,15 +50,15 @@ let prog5 =
  *)
 
 let prog6 =
-  CompoundStm (AssignStm ("a",
-                          OpExp (NumExp 5,
-                                 Plus,
-                                 NumExp 3)),
-               CompoundStm (AssignStm ("b", EseqExp (PrintStm [IdExp "a";
-                                                               OpExp (IdExp "a",
-                                                                      Minus,
-                                                                      NumExp 1)],
-                                                     OpExp (NumExp 10,
-                                                            Times,
-                                                            IdExp "a"))),
-                            PrintStm [IdExp "b"]))
+  CompoundStm (AssignStm (Symbol.symbol "a",
+                          OpExp (Plus,
+                                 NumExp 5.,
+                                 NumExp 3.)),
+               CompoundStm (AssignStm (Symbol.symbol "b", EseqExp (PrintStm [IdExp (Symbol.symbol "a");
+                                                               OpExp (Minus,
+                                                                      IdExp (Symbol.symbol "a"),
+                                                                      NumExp 1.)],
+                                                     OpExp (Times,
+                                                            NumExp 10.,
+                                                            IdExp (Symbol.symbol "a")))),
+                            PrintStm [IdExp (Symbol.symbol "b")]))
