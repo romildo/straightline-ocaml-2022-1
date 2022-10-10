@@ -7,3 +7,12 @@
     ppx_deriving.show))
  (flags
   (:standard -warn-error -A)))
+
+(ocamllex
+ (modules lexer))
+
+(menhir
+ (modules parser)
+ (flags (
+   --only-tokens      ; generate just the token type
+)))

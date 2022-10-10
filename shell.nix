@@ -23,6 +23,7 @@ pkgs.stdenv.mkDerivation {
     ocamlPackages.ppxlib
     ocamlPackages.ppx_import
     ocamlPackages.ppx_deriving
+    ocamlPackages.menhir
 
     pkgs.rlwrap
 
