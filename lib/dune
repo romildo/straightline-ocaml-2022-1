@@ -14,5 +14,10 @@
 (menhir
  (modules parser)
  (flags (
-   --only-tokens      ; generate just the token type
+   ; --only-tokens      ; generate just the token type
+   --explain          ; explain conflicts in <basename>.conflicts
+   --dump             ; write an .automaton file
+   --reference-graph
+   --automaton-graph
+   --log-grammar 2    ; 
 )))
