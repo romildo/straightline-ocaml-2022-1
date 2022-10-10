@@ -20,9 +20,9 @@ pkgs.stdenv.mkDerivation {
     ### aditional
     ocamlPackages.printbox
     ocamlPackages.printbox-text
-    # ocamlPackages.ppxlib
+    ocamlPackages.ppxlib
     # ocamlPackages.ppx_import
-    # ocamlPackages.ppx_deriving
+    ocamlPackages.ppx_deriving
 
     pkgs.rlwrap
 

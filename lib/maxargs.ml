@@ -12,7 +12,7 @@ and maxargs_exp exp =
   match exp with
   | IdExp _ -> 0
   | NumExp _ -> 0
-  | OpExp (e1, _, e2) -> max (maxargs_exp e1) (maxargs_exp e2)
+  | OpExp (_, e1, e2) -> max (maxargs_exp e1) (maxargs_exp e2)
   | EseqExp (s, e) -> max (maxargs s) (maxargs_exp e)
 
 (* definition using direct recursion *)

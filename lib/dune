@@ -2,4 +2,8 @@
  (name straightline)
  (wrapped false)
  (libraries printbox printbox-text)
- (flags (:standard -warn-error -A)))
+ (preprocess
+  (staged_pps
+    ppx_deriving.show))
+ (flags
+  (:standard -warn-error -A)))
