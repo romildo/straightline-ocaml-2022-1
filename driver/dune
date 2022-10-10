@@ -1,0 +1,9 @@
+(executable
+ (name driver)
+ (libraries printbox printbox-text straightline)
+ (preprocess
+  (staged_pps
+    ppx_import
+    ppx_deriving.show))
+ (flags
+  (:standard -warn-error -A)))
