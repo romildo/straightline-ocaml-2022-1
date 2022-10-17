@@ -18,6 +18,10 @@
 %token <float>         NUM
 %token <Symbol.symbol> ID
 
+%right SEMICOLON
+%left PLUS MINUS
+%left TIMES DIV
+
 %start <stm>           program
 
 %%
